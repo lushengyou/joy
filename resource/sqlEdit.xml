@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body>
+	<SLBB>
+	</SLBB>
+	<SLDQ>
+		<GetDepartInfo>
+			<sql>select ksmc,ksdm,ghlb,ghf,zlf,mzks,ksxb,ekbz,ksjj,etnl,isspecialdepart,phone from V_YY_DepartInfo</sql>
+			<map>
+				<ksmc>DepartName</ksmc>
+				<ksdm>DepartID</ksdm>
+				<ghlb>DepartType</ghlb>
+				<ghf>RegistryFee</ghf>
+				<zlf>ClinicFee</zlf>
+				<mzks>MZKS</mzks>
+				<!-- 
+				<node id="ksxb"></node>
+				 -->
+				<ekbz>BabyFlag</ekbz>
+				<ksjj>DepartIntro</ksjj>
+				<etnl>BabyAge</etnl>
+				<isspecialdepart>IsSpecialDepart</isspecialdepart>
+				<phone>Phone</phone>
+				
+		</map>
+		</GetDepartInfo>
+	</SLDQ>
+</body>

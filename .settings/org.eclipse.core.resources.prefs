@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/com/bsoft/service/info/BackNoInfo.java=UTF-8
+encoding//src/com/bsoft/service/info/GetDepartInfo.java=UTF-8
+encoding//src/com/bsoft/service/info/GetQhInfo.java=UTF-8
+encoding//src/com/bsoft/service/info/GetYyNo.java=UTF-8
+encoding//src/com/bsoft/service/info/GetYyNo5.java=UTF-8
+encoding//src/com/bsoft/service/info/UpdateOrderInfo.java=UTF-8
+encoding//src/com/bsoft/service/info/UpdatePayType.java=UTF-8
+encoding//src/com/dao/InterfaceQueryDao.java=UTF-8
+encoding//src/com/util/ConnectionPool.java=UTF-8
+encoding//src/com/util/DBAccess.java=UTF-8
+encoding//src/com/util/ProcReturn.java=UTF-8
+encoding//src/com/util/TimerTaskUtil.java=UTF-8

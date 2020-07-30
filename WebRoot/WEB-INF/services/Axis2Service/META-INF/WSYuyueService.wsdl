@@ -1,0 +1,1520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.yuyue.ws.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.yuyue.ws.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:types>
+        <xs:schema targetNamespace="http://service.yuyue.ws.com/" version="1.0" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:element name="getDepartInfo">
+                <xs:annotation>
+                    <xs:documentation>医院科室基本信息请求</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="MsgType" type="xs:int">
+                                        <xs:annotation>
+                                            <xs:documentation>操作类型</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="RequestInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院编码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDepartInfoResponse">
+                <xs:annotation>
+                    <xs:documentation>医院科室基本信息响应</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" name="DepartInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DepartName" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室名称</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DepartType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室类别（1：普通挂号科室2：专病专科；3：专家科室；4 急诊
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DepartIntro" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室简介</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="RegistryFee" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号费用</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="ClinicFee" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>门诊费用</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="MZKS" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>大科室编号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DepartSex" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>性别标志 0 默认值，表示不限性别
+                                                            1 男表示只限男性 2 女表示只限女性
+                                                            空表示不限性别
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="BabyFlag" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>儿科标志。0 默认值，非儿科；1儿科
+                                                            空表示不限制
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="BabyAge" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>儿童限制年龄，，大于该年龄不可挂</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="IsSpecialDepart" type="xs:int" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>是否特色科室0 默认值，不是特色科室,1 是特色科室</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Phone" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>科室电话</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Remark" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>备注</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDoctorInfo">
+                <xs:annotation>
+                    <xs:documentation>医院专家基本信息请求</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="MsgType" type="xs:int">
+                                        <xs:annotation>
+                                            <xs:documentation>操作类型(1000 请求医生信息)</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="RequestInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院编码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDoctorInfoResponse">
+                <xs:annotation>
+                    <xs:documentation>医院专家基本信息响应</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="DoctorInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DoctorID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医生代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DoctorName" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医生姓名</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DoctorSex" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医生性别（1 男 2女）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DoctorRank" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医生职称</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DoctorInro" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医生简介</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DoctorIntor" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医生特长</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="IsExpert" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>是否专家（0否1是）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DoctorCardNo" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>医生身份证号码</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Education" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>学历（最高）</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Experience" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>从医经验</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+                                                <xs:element minOccurs="0" name="AveWorkTime" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>
+                                                            平均就诊时间（如已实现平均就诊时间上传接口或医院已经实行分时段预约，则此处不填写，否则必须填写）单位：分钟
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDepartWorkInfo">
+                <xs:annotation>
+                    <xs:documentation>医院科室排班请求</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="MsgType" type="xs:int">
+                                        <xs:annotation>
+                                            <xs:documentation>操作类型(1000 请求排班信息)</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="RequestInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院编码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="BeginTime" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>排班起始日期</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="EndTime" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>排班结束日期</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDepartWorkInfoResponse">
+                <xs:annotation>
+                    <xs:documentation>医院科室排班响应</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="DepartCalendar">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="WorkStatus" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>排班类型(0：正常，1：停诊；2：停挂但保留预约</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="WorkDate" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>排班日期</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="WorkType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>值班类别（1上午 2下午 3全天）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="BeginNo" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>放号起始号码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="SpaceNo" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>放号间隔号码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="Limited" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>放号限额</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="RegistryFee" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号费</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="ClinicFee" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>门诊费</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="Remark" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>备注</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDoctorWorkInfo">
+                <xs:annotation>
+                    <xs:documentation>医院专家排班请求</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="MsgType" type="xs:int">
+                                        <xs:annotation>
+                                            <xs:documentation>操作类型(1000 请求排班信息)</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="RequestInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院编码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DoctorID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医生代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="BeginTime" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>排班起始日期</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="EndTime" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>排班结束日期，不得小于起始日期</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDoctorWorkInfoResponse">
+                <xs:annotation>
+                    <xs:documentation>医院专家排班响应</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="DoctorCalendar">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="WorkStatus" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>排班类型(0：正常，1：停诊；2：停挂但保留预约)</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DoctorID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医生代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="WorkDate" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>排班日期</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="WorkType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>值班类别（1上午 2下午 3全天）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="BeginNo" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>放号起始号码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="SpaceNo" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>放号间隔号码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="Limited" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>放号限额</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="RegistryFee" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号费</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="ClinicFee" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>门诊费</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="ExpertsFee" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>专家费</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="Remark" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>备注</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getDtNoInfo">
+                <xs:annotation>
+                    <xs:documentation>医院号源请求</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="RequestInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DoctorID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医生代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="WorkDate" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>排班日期</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="WorkType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>值班类别（1上午 2下午 3全天）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+			<xs:element name="getDtNoInfoResponse">
+				<xs:annotation>
+					<xs:documentation>医院号源响应</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Message">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="WorkInfo" minOccurs="0" maxOccurs="unbounded">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="StartTime" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>起始时间段</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="EndTime" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>截止时间段</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="ResName" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>资源名称</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="TotalNum" type="xs:int">
+													<xs:annotation>
+														<xs:documentation>号源总数</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="LeftNum" type="xs:int">
+													<xs:annotation>
+														<xs:documentation>剩余号源数</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="CheckSum" type="xs:int" minOccurs="0"/>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Queue" minOccurs="0">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="CurrentNum" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>当前就诊号码</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="QueuingNum" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>排队就诊队列</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+            <xs:element name="getYyNo">
+                <xs:annotation>
+                    <xs:documentation>预约挂号请求</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="OrderInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="RegID" type="xs:unsignedLong">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号流水号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约医院编号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约科室编号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DepartName" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约科室名称</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DoctorID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约医生编号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DoctorName" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约医生名称</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="IsExpert" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>是否专家号（0否1是）
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="SickName" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>病人姓名</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="SickSex" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>性别（0男1女</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="SickBirthday" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>出生年月</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="SickInsureType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医保类型（
+                                                            0 自费
+                                                            1 市民卡
+                                                            2 园区医保）
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="SickInsureNo" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医保卡号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="SeeDoctorDate" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约就诊日期</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="WorkType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约值班类别（1上午 2下午 3全天）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="ReserveNo" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约就诊号码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="RegistryFee" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号费</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="ClinicFee" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>门诊费</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="ExpertsFee" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>专家费</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="CheckNo" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>就诊密码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="Phone" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>紧急联系电话</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="CardNo" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>身份证号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="RegType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约类别（0预约1社区转诊，其余值保留）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="PayType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>是否付费（0否1是）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="CreateDate" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号时间</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="BeginTime" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>分时段开始时间</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="EndTime" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>分时段结束时间</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="OperID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>诊间预约操作员id</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="OutHospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>转出医疗机构代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="OutHospitalName" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>转出医疗机构</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="FromDeptID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>转出科室代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="FromDeptName" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>转出科室名称</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="FromDoctorID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>转出医生代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="FromDoctorName" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>转出医生姓名</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="ChangeCliniqueReason" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>转诊原因</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="MedicalRecord" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>病史摘要</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="PreDiagnosis" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>初步诊断</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+												<xs:element name="Mzbh" type="xs:string" minOccurs="0">
+													<xs:annotation>
+														<xs:documentation>门诊编号</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+                                                
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getYyNoResponse">
+                <xs:annotation>
+                    <xs:documentation>预约挂号响应</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="ResponseInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="Code" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>
+                                                            预约状态（1000预约成功，1001预约已满，1002已经有预约记录，1003科室或医生不存在，1004排班信息不存在，1005其它异常）
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="RegID" type="xs:unsignedLong">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号流水号，当预约状态=1002时必须返回已经存在的流水号
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="ReserveNo" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>就诊序号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="ErrMsg" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>异常信息提示</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getGhInfo">
+                <xs:annotation>
+                    <xs:documentation>查询预约请求</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="BatRegInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="QueyDate" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>日期（就诊日期，格式2012-01-01）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="OneRegInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element minOccurs="0" name="RegID" type="xs:unsignedLong">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号流水号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="CardNo" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>身份证号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约科室编号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DoctorID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约医生编号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="SeeDoctorDate" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约就诊日期</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getGhInfoResponse" nillable="true">
+                <xs:annotation>
+                    <xs:documentation>查询预约响应</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Code" type="xs:string">
+                                        <xs:annotation>
+                                            <xs:documentation>返回代码（2000挂号信息获取成功 2001 请求格式不正确 2002 挂号信息不存在 2003 系统错误）
+                                            </xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="Description" type="xs:string">
+                                        <xs:annotation>
+                                            <xs:documentation>返回描述</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element maxOccurs="unbounded" minOccurs="0" name="RegInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="RegID" type="xs:unsignedLong">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号流水号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DoctorID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>专家代码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="SelfMoney" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>自费费用</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="InsureMoney" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医保费用</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="GetNoDate" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>取号时间</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="IsGet" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>是否取号（0取号，1未取号）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="NotPay" type="xs:double">
+                                                    <xs:annotation>
+                                                        <xs:documentation>未支付费用，单位：元,0表示所有费用已结清</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="backNo">
+                <xs:annotation>
+                    <xs:documentation>退号请求</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="RequestInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="HospitalID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医院编号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="RegID" type="xs:unsignedLong">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号流水号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DepartID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>科室编号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="DoctorID" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>专家编号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="IsExpert" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>是否专家（0：否1：是）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="ReserveNo" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约就诊号码</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="SeeDoctorDate" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>就诊时间</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="WorkType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>值班类别（1上午 2下午 3 全天）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="BeginTime" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>开始时间</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="EndTime" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>结束时间</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="RegType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>预约类别（0预约1社区转诊，其余值保留）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="backNoResponse">
+                <xs:annotation>
+                    <xs:documentation>退号响应</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="ResponseInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="Code" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>返回代码0000 成功 0001 挂号记录不存在，0002 操作不允许，0003
+                                                            数据库错误，0004 其他异常
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="ErrMsg" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>异常信息提示</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateOrderInfo">
+                <xs:annotation>
+                    <xs:documentation>修改预约请求</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="RequestInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="RegID" type="xs:unsignedLong">
+                                                    <xs:annotation>
+                                                        <xs:documentation>挂号流水号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="SickName" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>病人姓名</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="SickSex" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>性别（0男1女）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="SickInsureType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>医保类型（
+                                                            0 自费
+                                                            1 市民卡）
+                                                        </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="Phone" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>联系电话</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element name="CardNo" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>身份证号</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="PayType" type="xs:int">
+                                                    <xs:annotation>
+                                                        <xs:documentation>是否付费（0否1是）</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="updateOrderInfoResponse">
+                <xs:annotation>
+                    <xs:documentation>修改预约响应</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Message">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="ResponseInfo">
+                                        <xs:complexType>
+                                            <xs:sequence>
+                                                <xs:element name="Code" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>返回代码0000 成功 0001 失败</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                                <xs:element minOccurs="0" name="ErrMsg" type="xs:string">
+                                                    <xs:annotation>
+                                                        <xs:documentation>返回信息提示</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:element>
+                                            </xs:sequence>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="backNoResponse">
+        <wsdl:part name="backNoResponse" element="tns:backNoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getYyNo">
+        <wsdl:part name="getYyNo" element="tns:getYyNo">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getYyNoResponse">
+        <wsdl:part name="getYyNoResponse" element="tns:getYyNoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDepartInfoResponse">
+        <wsdl:part name="getDepartInfoResponse" element="tns:getDepartInfoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getGhInfoResponse">
+        <wsdl:part name="getGhInfoResponse" element="tns:getGhInfoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDoctorInfo">
+        <wsdl:part name="getDoctorInfo" element="tns:getDoctorInfo">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDepartWorkInfoResponse">
+        <wsdl:part name="getDepartWorkInfoResponse" element="tns:getDepartWorkInfoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getGhInfo">
+        <wsdl:part name="getGhInfo" element="tns:getGhInfo">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="updateOrderInfo">
+        <wsdl:part name="updateOrderInfo" element="tns:updateOrderInfo">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDoctorWorkInfoResponse">
+        <wsdl:part name="getDoctorWorkInfoResponse" element="tns:getDoctorWorkInfoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDoctorWorkInfo">
+        <wsdl:part name="getDoctorWorkInfo" element="tns:getDoctorWorkInfo">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDtNoInfo">
+        <wsdl:part name="getDtNoInfo" element="tns:getDtNoInfo">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="backNo">
+        <wsdl:part name="backNo" element="tns:backNo">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="updateOrderInfoResponse">
+        <wsdl:part name="updateOrderInfoResponse" element="tns:updateOrderInfoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDtNoInfoResponse">
+        <wsdl:part name="getDtNoInfoResponse" element="tns:getDtNoInfoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDepartInfo">
+        <wsdl:part name="getDepartInfo" element="tns:getDepartInfo">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDoctorInfoResponse">
+        <wsdl:part name="getDoctorInfoResponse" element="tns:getDoctorInfoResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDepartWorkInfo">
+        <wsdl:part name="getDepartWorkInfo" element="tns:getDepartWorkInfo">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="WSYuyue">
+        <wsdl:operation name="getDoctorInfo">
+            <wsdl:input name="getDoctorInfo" message="tns:getDoctorInfo">
+            </wsdl:input>
+            <wsdl:output name="getDoctorInfoResponse" message="tns:getDoctorInfoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDepartWorkInfo">
+            <wsdl:input name="getDepartWorkInfo" message="tns:getDepartWorkInfo">
+            </wsdl:input>
+            <wsdl:output name="getDepartWorkInfoResponse" message="tns:getDepartWorkInfoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDepartInfo">
+            <wsdl:input name="getDepartInfo" message="tns:getDepartInfo">
+            </wsdl:input>
+            <wsdl:output name="getDepartInfoResponse" message="tns:getDepartInfoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getYyNo">
+            <wsdl:input name="getYyNo" message="tns:getYyNo">
+            </wsdl:input>
+            <wsdl:output name="getYyNoResponse" message="tns:getYyNoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDoctorWorkInfo">
+            <wsdl:input name="getDoctorWorkInfo" message="tns:getDoctorWorkInfo">
+            </wsdl:input>
+            <wsdl:output name="getDoctorWorkInfoResponse" message="tns:getDoctorWorkInfoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateOrderInfo">
+            <wsdl:input name="updateOrderInfo" message="tns:updateOrderInfo">
+            </wsdl:input>
+            <wsdl:output name="updateOrderInfoResponse" message="tns:updateOrderInfoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGhInfo">
+            <wsdl:input name="getGhInfo" message="tns:getGhInfo">
+            </wsdl:input>
+            <wsdl:output name="getGhInfoResponse" message="tns:getGhInfoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDtNoInfo">
+            <wsdl:input name="getDtNoInfo" message="tns:getDtNoInfo">
+            </wsdl:input>
+            <wsdl:output name="getDtNoInfoResponse" message="tns:getDtNoInfoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="backNo">
+            <wsdl:input name="backNo" message="tns:backNo">
+            </wsdl:input>
+            <wsdl:output name="backNoResponse" message="tns:backNoResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WSYuyueSoapBinding11" type="tns:WSYuyue">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getDepartInfo">
+            <soap:operation soapAction="getDepartInfo" style="document"/>
+            <wsdl:input name="getDepartInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDepartInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDepartWorkInfo">
+            <soap:operation soapAction="getDepartWorkInfo" style="document"/>
+            <wsdl:input name="getDepartWorkInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDepartWorkInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDoctorInfo">
+            <soap:operation soapAction="getDoctorInfo" style="document"/>
+            <wsdl:input name="getDoctorInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDoctorInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getYyNo">
+            <soap:operation soapAction="getYyNo" style="document"/>
+            <wsdl:input name="getYyNo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getYyNoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDoctorWorkInfo">
+            <soap:operation soapAction="getDoctorWorkInfo" style="document"/>
+            <wsdl:input name="getDoctorWorkInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDoctorWorkInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateOrderInfo">
+            <soap:operation soapAction="updateOrderInfo" style="document"/>
+            <wsdl:input name="updateOrderInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateOrderInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="backNo">
+            <soap:operation soapAction="backNo" style="document"/>
+            <wsdl:input name="backNo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="backNoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDtNoInfo">
+            <soap:operation soapAction="getDtNoInfo" style="document"/>
+            <wsdl:input name="getDtNoInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDtNoInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGhInfo">
+            <soap:operation soapAction="getGhInfo" style="document"/>
+            <wsdl:input name="getGhInfo">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getGhInfoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WSYuyueSoapBinding12" type="tns:WSYuyue">
+        <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getDepartInfo">
+            <soap12:operation soapAction="getDepartInfo" style="document"/>
+            <wsdl:input name="getDepartInfo">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDepartInfoResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDepartWorkInfo">
+            <soap12:operation soapAction="getDepartWorkInfo" style="document"/>
+            <wsdl:input name="getDepartWorkInfo">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDepartWorkInfoResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDoctorInfo">
+            <soap12:operation soapAction="getDoctorInfo" style="document"/>
+            <wsdl:input name="getDoctorInfo">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDoctorInfoResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getYyNo">
+            <soap12:operation soapAction="getYyNo" style="document"/>
+            <wsdl:input name="getYyNo">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getYyNoResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDoctorWorkInfo">
+            <soap12:operation soapAction="getDoctorWorkInfo" style="document"/>
+            <wsdl:input name="getDoctorWorkInfo">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDoctorWorkInfoResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateOrderInfo">
+            <soap12:operation soapAction="updateOrderInfo" style="document"/>
+            <wsdl:input name="updateOrderInfo">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateOrderInfoResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="backNo">
+            <soap12:operation soapAction="backNo" style="document"/>
+            <wsdl:input name="backNo">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="backNoResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getDtNoInfo">
+            <soap12:operation soapAction="getDtNoInfo" style="document"/>
+            <wsdl:input name="getDtNoInfo">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDtNoInfoResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getGhInfo">
+            <soap12:operation soapAction="getGhInfo" style="document"/>
+            <wsdl:input name="getGhInfo">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getGhInfoResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WSYuyueService">
+        <wsdl:port name="WSYuyue11" binding="tns:WSYuyueSoapBinding11">
+            <soap:address location="http://localhost:8080/BS_YY/services/WSYuyueService"/>
+        </wsdl:port>
+        <wsdl:port name="WSYuyue12" binding="tns:WSYuyueSoapBinding12">
+            <soap12:address location="http://localhost:8080/BS_YY/services/WSYuyueService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

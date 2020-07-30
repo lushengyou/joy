@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<finalInfo>
+		<HospitalCode>FQYY</HospitalCode>
+		<DepartIntro></DepartIntro>
+		<BabyAge>14</BabyAge>
+		<DoctorIntor></DoctorIntor>
+		<AVeworktime></AVeworktime>
+		<BeginNo>2</BeginNo>
+		<SpaceNo>2</SpaceNo>
+		<Limited>9999</Limited>
+		<StartTime1></StartTime1>
+		<EndTime1></EndTime1>
+		<StartTime2></StartTime2>
+		<EndTime2></EndTime2>
+		<version>5</version>
+<!--  		<WX_wsdl>http://172.25.223.76:8080/zhylService/services/changeClinique</WX_wsdl>
+		<WX_ns>http://hisInfoUpdateService.szsx</WX_ns>
+		-->
+	</finalInfo>

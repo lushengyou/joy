@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 高新区人民医院  
+<database>
+<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+<url>jdbc:sqlserver://172.16.100.30:1433; DatabaseName=portal55_his</url>
+<username>sa</username>
+<passwd>fqyy@100</passwd>
+</database>
+-->
+
+<!-- 沧浪医院  -->
+<database>
+<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+<url>jdbc:sqlserver://172.16.70.68:1433; DatabaseName=portal55_his</url>
+<username>sa</username>
+<passwd>Huawei12#$</passwd>
+</database>
+
+
+
+<!--  市立医院东区 
+<database>
+<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+<url>jdbc:sqlserver://172.25.11.6:1433; DatabaseName=hrp250</url>
+<username>sa</username>
+<passwd>20050111east</passwd>
+</database> 
+-->
+<!-- 木渎人民医院 
+<database>
+<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+<url>jdbc:sqlserver://192.168.1.6:1433; DatabaseName=hrp</url>
+<username>sa</username>
+<passwd></passwd>
+</database> --> 
+
+
+
+<!-- 第五人民医院 
+<database>
+	<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+	<url>jdbc:sqlserver://172.25.20.10:1433; DatabaseName=hrp260</url>
+	<username>sa</username>
+	<passwd>WYfuture001</passwd>
+</database> 
+-->  
+
+
+<!-- 相城人民医院 测试库 
+<database>
+<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+<url>jdbc:sqlserver://172.168.0.2:1433; DatabaseName=hrp_xcyy_day</url>
+<username>sa</username>
+<passwd>dell123</passwd>
+</database> 
+--> 
+
+<!--  测试服务器
+<database>
+<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+<url>jdbc:sqlserver://localhost:1433; DatabaseName=hrp</url>
+<username>sa</username>
+<passwd>bsoft123</passwd>
+</database> 
+  --> 
+
+
+<!-- 市立医院本部
+
+
+
+<database>
+<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+<url>jdbc:sqlserver://172.25.5.9:1433; DatabaseName=hrp250</url>
+<username>hrpuser</username>
+<passwd>vialogin</passwd>
+</database>
+-->
+<!-- 市立医院北区
+
+
+<database>
+<driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+<url>jdbc:sqlserver://172.25.8.38:1433; DatabaseName=hrp250</url>
+<username>bsoftuser</username>
+<passwd>213hyf</passwd>
+</database>
+-->
